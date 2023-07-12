@@ -1,0 +1,109 @@
+# paths can be either relative or absolute
+
+# setting
+setting:
+  # input directory of your intended CommonRoad scenarios
+  input_path: ../../scenarios/exercise/
+  # output directory of CommonRoad solution files
+  output_path: ../../outputs/solutions/
+  # overwrite solution file if it already exists
+  overwrite: True
+  # validate solution with the feasibility checker
+  validate_solution: True
+
+  # create gif files for valid solutions
+  create_gif: False
+  output_path_gif: ../../outputs/gifs
+
+  # decide whether print more information about the result
+  verbose: False
+
+  # choose the number of parallel executions of motion planners
+  # the valid range is [1, max number of cpus on your system]
+  num_worker_processes: 6
+
+# logging
+logging:
+  log_to_file: True
+  log_file_dir: ../../outputs/logs
+  log_file_name: log
+  add_timestamp_to_log_file: True
+
+# search parameters for motion planner
+# parameters under 'default' is used for all scenarios, except
+# the ones with specific scenario ID
+# e.g. a parameter section for 'DEU_Hhr-1_1' is added below
+
+default: &default # create an anchor point for default parameters
+  # vehicle model, e.g., kinematic single-track model
+  vehicle_model: KS
+  # vehicle type, e.g, BMW 320i
+  vehicle_type: BMW_320i
+  # cost function
+  cost_function: SM1
+  # the planner that is used to solve for solutions.
+  # possible values are: bfs, dfs, dls, ucs, gbfs, astar, student, student_example
+  planner: astar
+  # planning problem index. for cooperative scenarios: 0, 1, 2, ..., otherwise: 0
+  planning_problem_idx: 0
+  # maximum depth of the search tree
+  max_tree_depth: 100
+  # timeout time setting for motion planner [s].
+  timeout: 30
+
+default_automaton_files:
+  FORD_ESCORT: V_0.0_20.0_Vstep_1.0_SA_-0.91_0.91_SAstep_0.23_T_0.5_Model_FORD_ESCORT
+  BMW_320i: V_0.0_20.0_Vstep_4.0_SA_-1.066_1.066_SAstep_0.18_T_0.5_Model_BMW_320i
+  VW_VANAGON: V_0.0_20.0_Vstep_1.0_SA_-1.023_1.023_SAstep_0.26_T_0.5_Model_VW_VANAGON
+
+# custom settings for specific scenarios
+DEU_Hhr-1_1:
+  <<: *default # copy parameters from block 'default'
+  # parameters can be overwritten here
+  vehicle_type: FORD_ESCORT
+  max_tree_depth: 400
+
+scenario_loader:
+  # scenario load can have the following modes:
+  # DEFAULT: loads all scenarios from the specified scenario folder
+  # RANDOM: loads randomly selected scenarios from the specified scenario folder
+  # SPECIFIC: loads specified scenarios, see below
+  inputmode: DEFAULT
+
+  # number of scenarios to be randomly selected. this only works for inputmode set to RANDOM
+  random_count: 3
+
+  # specific scenarios to be tested. this only works for inputmode set to SPECIFIC
+  # if the given list is empty, all scenarios will be loaded
+  scenarios_to_run:
+    - DEU_Hhr-1_1
+  #  - ZAM_ACC-1_2_S-1
+  #  - ZAM_ACC-1_3_S-1
+  #  - USA_Peach-4_5_T-1
+  #  - CHN_Cho-2_10_T-1
+  #  - DEU_Gar-1_2_T-1
+  #  - DEU_Muc-1_2_T-1
+
+  # the following scenarios will be skipped
+  scenarios_to_skip:
+    - ZAM_HW-1_1_S-1  # collision checker error
+  # Scenarios with 2 goal states:
+    - USA_US101-10_2_T-1
+    - USA_US101-14_3_T-1
+    - USA_US101-14_4_T-1
+    - USA_US101-31_1_T-1
+    - USA_US101-32_1_T-1
+
+  # Cooperative Scenarios:
+    - C-DEU_B471-2_1
+    - C-DEU_B471-1_1_T-1
+    - C-USA_Lanker-1_1_T-1
+    - C-USA_Lanker-1_2_T-1
+    - C-USA_Lanker-2_1_T-1
+    - C-USA_Lanker-2_2_T-1
+    - C-USA_Lanker-2_3_T-1
+    - C-USA_Lanker-2_4_T-1
+    - C-USA_US101-30_1_T-1
+    - C-USA_US101-31_1_T-1
+    - C-USA_US101-32_1_T-1
+    - C-USA_US101-33_1_T-1
