@@ -307,7 +307,8 @@ def planning(cfg: dict, output_dir: str, input_dir: str, file: str) -> None:
                                         prediction=ego_vehicle_prediction)
         
     except RuntimeError:
-        print("   ", f"{file} not feasible, proceding to next file!")
+        print("   ", f"{file} not feasible!")
+        return
         
     ##################################################### Visualization #########################################################
     if save_gif and fplist:

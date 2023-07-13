@@ -1,6 +1,6 @@
-data/**
-# data/results/**
-# data/solution/**
+data/
+media/
+!data/demo/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
