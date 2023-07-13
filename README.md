@@ -2,11 +2,35 @@
 
 ## [IROS 2023] FISS+: Efficient and Focused Trajectory Generation and Refinement using Fast Iterative Search and Sampling Strategy
 
-<p float="left">
-  <img src="media/FOP'/DEU_Flensburg-78_1_T-1.gif" alt="drawing" width="200"/>
-  <img src="media/FISS/DEU_Flensburg-78_1_T-1.gif" alt="drawing" width="200"/>
-  <img src="media/FISS+/DEU_Flensburg-78_1_T-1.gif" alt="drawing" width="200"/>
+<!-- <p float="left">
+  <img src="media/FOP+/DEU_Flensburg-1_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS/DEU_Flensburg-1_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS+/DEU_Flensburg-1_1_T-1.gif" alt="drawing" width="200"/>
 </p>
+
+<p float="left">
+  <img src="media/FOP+/DEU_Flensburg-26_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS/DEU_Flensburg-26_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS+/DEU_Flensburg-26_1_T-1.gif" alt="drawing" width="200"/>
+</p> -->
+
+<!-- <p float="left">
+  <img src="media/FOP+/DEU_Lohmar-15_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS/DEU_Lohmar-15_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS+/DEU_Lohmar-15_1_T-1.gif" alt="drawing" width="200"/>
+</p>
+
+<p float="left">
+  <img src="media/FOP+/DEU_Lohmar-54_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS/DEU_Lohmar-54_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS+/DEU_Lohmar-54_1_T-1.gif" alt="drawing" width="200"/>
+</p>
+
+<p float="left">
+  <img src="media/FOP+/DEU_Lohmar-65_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS/DEU_Lohmar-65_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS+/DEU_Lohmar-65_1_T-1.gif" alt="drawing" width="200"/>
+</p> -->
 
 ## Dependencies
 
@@ -30,6 +54,8 @@ conda activate cr
 ```bash
 python3 scripts/demo_cr.py
 ```
+
+The result will be save as a `.gif` file in the specified ouput directory
 
 ## Contribution
 
