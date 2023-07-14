@@ -8,6 +8,24 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/ss47816/fiss_plus_planner?color=FFE333)
 ![GitHub Repo forks](https://img.shields.io/github/forks/ss47816/fiss_plus_planner?color=FFE333)
 
+<p float="left">
+  <img src="media/FOP+/DEU_Flensburg-1_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS/DEU_Flensburg-1_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS+/DEU_Flensburg-1_1_T-1.gif" alt="drawing" width="200"/>
+</p>
+
+<p float="left">
+  <img src="media/FOP+/DEU_Lohmar-54_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS/DEU_Lohmar-54_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS+/DEU_Lohmar-54_1_T-1.gif" alt="drawing" width="200"/>
+</p>
+
+<p float="left">
+  <img src="media/FOP+/DEU_Lohmar-65_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS/DEU_Lohmar-65_1_T-1.gif" alt="drawing" width="200"/>
+  <img src="media/FISS+/DEU_Lohmar-65_1_T-1.gif" alt="drawing" width="200"/>
+</p>
+
 ## Dependencies
 
 - python>=3.8

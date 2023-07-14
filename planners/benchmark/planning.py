@@ -415,8 +415,8 @@ def planning(cfg: dict, output_dir: str, input_dir: str, file: str) -> None:
                             color='#1d7eea', alpha=0.8,  zorder=25, lw=0.6)
             time_list.append(0)
 
-            plt.title("{method}: {n} Samples  {time}s".format(
-                method=method, n=len(fplist[i]), time=round(time_list[i], 3)))
+            plt.title("{method}: {time}s".format(
+                method=method, time=round(time_list[i], 3)))
             scenario_id = os.path.splitext(file)[0]
             plt.suptitle(f'Scenario ID: {scenario_id}',
                          fontsize=20, x=0.59, y=0.06)
