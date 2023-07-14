@@ -3,7 +3,7 @@ INPUT_DIR: 'data/demo/'
 FILES: []  # empty by default if you want to run all the scenario files under the input directory
 
 PLANNER: 'FISS+'    # the name of the planner to be used, can be: FOP, FOP+, FISS, FISS+
-N_W_SAMPLE: 5       # number of lateral offset samples
-N_S_SAMPLE: 5       # number of longitudinal speed samples
-N_T_SAMPLE: 5       # number of time horizon samples
+N_W_SAMPLE: 9       # number of lateral offset samples
+N_S_SAMPLE: 9       # number of longitudinal speed samples
+N_T_SAMPLE: 9       # number of time horizon samples
 SAVE_GIF: True      # save the animation as a .gif file
