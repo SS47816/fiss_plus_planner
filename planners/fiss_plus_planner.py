@@ -1,20 +1,16 @@
-import sys
-import pathlib
-import time
 import copy
+import time
 from queue import PriorityQueue
+
 import numpy as np
-
 from commonroad.scenario.scenario import Scenario
-from commonroad.scenario.obstacle import Obstacle
 
-sys.path.append(str(pathlib.Path(__file__).parent.parent))
-
-from common.geometry.polynomial import QuarticPolynomial, QuinticPolynomial
-from common.scenario.frenet import FrenetState, FrenetTrajectory
-from common.vehicle.vehicle import Vehicle
+from planners.common.geometry.polynomial import QuarticPolynomial, QuinticPolynomial
+from planners.common.scenario.frenet import FrenetState, FrenetTrajectory
+from planners.common.vehicle.vehicle import Vehicle
+from planners.fiss_planner import FissPlanner, FissPlannerSettings
 from planners.frenet_optimal_planner import Stats
-from planners.fiss_planner import FissPlannerSettings, FissPlanner
+
 
 class FissPlusPlannerSettings(FissPlannerSettings):
     def __init__(self, num_width: int = 5, num_speed: int = 5, num_t: int = 5, refine_iters: int = 3):

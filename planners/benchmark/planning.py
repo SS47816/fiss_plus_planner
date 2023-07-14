@@ -1,6 +1,6 @@
+import os
 import signal
 import time
-import os
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -20,9 +20,9 @@ from matplotlib.collections import LineCollection
 from omegaconf import DictConfig
 from PIL import Image
 
-from common.scenario.frenet import FrenetState, State
-from common.vehicle.vehicle import Vehicle
-from commonroad_interface.global_planner import GlobalPlanner
+from planners.common.scenario.frenet import FrenetState, State
+from planners.common.vehicle.vehicle import Vehicle
+from planners.commonroad_interface.global_planner import GlobalPlanner
 from planners.fiss_planner import FissPlanner, FissPlannerSettings
 from planners.fiss_plus_planner import FissPlusPlanner, FissPlusPlannerSettings
 from planners.fop_plus_planner import FopPlusPlanner

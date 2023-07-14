@@ -3,7 +3,7 @@ import os
 
 import yaml
 
-from benchmark.planning import planning
+from planners.benchmark.planning import planning
 
 if __name__ == '__main__':
     repo_dir = os.getcwd()

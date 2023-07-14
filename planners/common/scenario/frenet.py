@@ -1,7 +1,7 @@
 import copy
 import numpy as np
-from common.scenario.lane import LaneType
-from common.geometry.math_utils import unifyAngleRange
+from planners.common.scenario.lane import LaneType
+from planners.common.geometry.math_utils import unifyAngleRange
 
 class State(object):
     def __init__(self, t: float = 0.0, x: float = 0.0, y: float = 0.0, yaw: float = 0.0, v: float = 0.0, a: float = 0.0):
@@ -78,8 +78,8 @@ class FrenetState(object):
         wp_yaw = polyline[prev_wp_id, 2]
         delta_yaw = unifyAngleRange(state.yaw - wp_yaw)
 
-        # if wp_yaw <= x_yaw: # CommonRoad
-        if wp_yaw > x_yaw:
+        # if wp_yaw > x_yaw: 
+        if wp_yaw <= x_yaw: # CommonRoad
             self.d *= -1
 
         # calculate s value

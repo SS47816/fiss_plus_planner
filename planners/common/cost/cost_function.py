@@ -1,6 +1,5 @@
 import numpy as np
-from commonroad.scenario.obstacle import Obstacle
-from common.scenario.frenet import FrenetState, FrenetTrajectory
+from planners.common.scenario.frenet import FrenetTrajectory
 
 class CostFunction:
     def __init__(self, cost_type: str):

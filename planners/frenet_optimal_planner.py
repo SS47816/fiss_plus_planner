@@ -1,28 +1,16 @@
-import sys
-import pathlib
 import copy
 import math
+
 import numpy as np
-from shapely import Polygon, affinity
-from commonroad.scenario.obstacle import Obstacle
-
-sys.path.append(str(pathlib.Path(__file__).parent.parent))
-
 from commonroad.scenario.scenario import Scenario
-from commonroad.scenario.trajectory import Trajectory
-from commonroad.scenario.state import InitialState, PMState, KSState
-from commonroad.scenario.obstacle import DynamicObstacle, ObstacleType
-from commonroad.geometry.shape import Rectangle
-from commonroad.prediction.prediction import TrajectoryPrediction
-from commonroad_dc.boundary.boundary import create_road_boundary_obstacle
-from commonroad_dc.collision.collision_detection.pycrcc_collision_dispatch import create_collision_checker, create_collision_object
+from shapely import Polygon, affinity
 
-from common.geometry.cubic_spline import CubicSpline2D
-from common.geometry.polynomial import QuarticPolynomial, QuinticPolynomial
-from common.scenario.frenet import FrenetState, FrenetTrajectory
-from common.cost.cost_function import CostFunction
-from common.vehicle.vehicle import Vehicle
-from common.visualization.plot_collison import plot_collision
+from planners.common.cost.cost_function import CostFunction
+from planners.common.geometry.cubic_spline import CubicSpline2D
+from planners.common.geometry.polynomial import QuarticPolynomial, QuinticPolynomial
+from planners.common.scenario.frenet import FrenetState, FrenetTrajectory
+from planners.common.vehicle.vehicle import Vehicle
+
 
 class Stats(object):
     def __init__(self):
@@ -72,10 +60,6 @@ class FrenetOptimalPlanner(object):
         self.settings = planner_settings
         self.vehicle = ego_vehicle
         self.cost_function = CostFunction("WX1")
-        # self.collision_checker = create_collision_checker(scenario)
-        # if self.settings.check_boundary:
-        #     _, road_boundary = create_road_boundary_obstacle(scenario)
-        #     self.collision_checker.add_collision_object(road_boundary)
         self.cubic_spline = None
         self.best_traj = None
         self.all_trajs = []

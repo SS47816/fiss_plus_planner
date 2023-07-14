@@ -1,15 +1,12 @@
-import sys
-import pathlib
 from queue import PriorityQueue
 
-from commonroad.scenario.scenario import Scenario
 from commonroad.scenario.obstacle import Obstacle
+from commonroad.scenario.scenario import Scenario
 
-sys.path.append(str(pathlib.Path(__file__).parent.parent))
+from planners.common.scenario.frenet import FrenetState, FrenetTrajectory
+from planners.common.vehicle.vehicle import Vehicle
+from planners.frenet_optimal_planner import FrenetOptimalPlanner, FrenetOptimalPlannerSettings, Stats
 
-from common.scenario.frenet import FrenetState, FrenetTrajectory
-from common.vehicle.vehicle import Vehicle
-from planners.frenet_optimal_planner import Stats, FrenetOptimalPlannerSettings, FrenetOptimalPlanner
 
 class FopPlusPlanner(FrenetOptimalPlanner):
     def __init__(self, planner_settings: FrenetOptimalPlannerSettings, ego_vehicle: Vehicle, scenario: Scenario=None):

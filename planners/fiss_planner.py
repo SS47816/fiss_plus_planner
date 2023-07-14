@@ -1,18 +1,14 @@
-import sys
-import pathlib
 import copy
 from queue import PriorityQueue
+
 import numpy as np
-
 from commonroad.scenario.scenario import Scenario
-from commonroad.scenario.obstacle import Obstacle
 
-sys.path.append(str(pathlib.Path(__file__).parent.parent))
+from planners.common.geometry.polynomial import QuarticPolynomial, QuinticPolynomial
+from planners.common.scenario.frenet import FrenetState, FrenetTrajectory
+from planners.common.vehicle.vehicle import Vehicle
+from planners.frenet_optimal_planner import FrenetOptimalPlanner, FrenetOptimalPlannerSettings, Stats
 
-from common.geometry.polynomial import QuarticPolynomial, QuinticPolynomial
-from common.scenario.frenet import FrenetState, FrenetTrajectory
-from common.vehicle.vehicle import Vehicle
-from planners.frenet_optimal_planner import Stats, FrenetOptimalPlannerSettings, FrenetOptimalPlanner
 
 class FissPlannerSettings(FrenetOptimalPlannerSettings):
     def __init__(self, num_width: int = 5, num_speed: int = 5, num_t: int = 5):

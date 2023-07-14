@@ -1,6 +1,6 @@
 data/
-media/
 !data/demo/*
+media/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
