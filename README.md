@@ -26,6 +26,24 @@
   <img src="media/FISS+/DEU_Lohmar-65_1_T-1.gif" alt="drawing" width="200"/>
 </p>
 
+## Video
+
+<a href="https://youtu.be/ZLGDUYyel30?si=d9aoYWL5ZRjnv4mJ" target="_blank"><img src="media/video_cover.png" alt="video" width="640" height="360" border="10" /></a>
+
+_[Our paper](https://doi.org/10.1109/IROS55552.2023.10341498) has been accepted by IROS 2023._
+
+```bibtex
+@INPROCEEDINGS{Sun_fiss+_2023,
+  author={Sun, Shuo and Chen, Jie and Sun, Jiawei and Yuan, Chengran and Li, Yuanchen and Zhang, Tangyike and Ang, Marcelo H.},
+  booktitle={2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  title={FISS+: Efficient and Focused Trajectory Generation and Refinement Using Fast Iterative Search and Sampling Strategy},
+  year={2023},
+  pages={10527-10534},
+  doi={10.1109/IROS55552.2023.10341498},
+  organization={IEEE}
+}
+```
+
 ## Dependencies
 
 - python>=3.8
