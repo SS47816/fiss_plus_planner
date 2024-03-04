@@ -77,6 +77,59 @@ export PYTHONPATH=$PYTHONPATH:"<PARENT_DIR>/fiss_plus_planner"
 
    The result of each scenario will be save as a separate `.gif` file under the specified ouput directory (`./data/output/gif/`)
 
+## Kown Issues and Fixes
+
+### 1. AttributeError: 'numpy.int64' object has no attribute 'intersects'
+
+As pointed out by @ggosjw, you might encounter an error similar to this:
+
+```bash
+  Traceback (most recent call last):
+    File "<YOUR_DIR>/fiss_plus_planner/scripts/demo_cr.py", line 28, in
+    planning(cfg, output_dir, input_dir, file)
+    File "<YOUR_DIR>/fiss_plus_planner/planners/benchmark/planning.py", line 314, in planning
+    _, ego_vehicle_trajectory, _, time_list, _, fplist = frenet_optimal_planning(
+    File "<YOUR_DIR>/fiss_plus_planner/planners/benchmark/planning.py", line 38, in frenet_optimal_planning
+    global_plan = global_planner.plan_global_route(scenario, planning_problem)
+    File "<YOUR_DIR>/fiss_plus_planner/planners/commonroad_interface/global_planner.py", line 38, in plan_global_route
+    route_planner = RoutePlanner(scenario, planning_problem, backend=RoutePlanner.Backend.NETWORKX_REVERSED)
+    File "<YOUR_DIR>/anaconda3/envs/cr/lib/python3.10/site-packages/commonroad_route_planner/route_planner.py", line 138, in init
+    self.id_lanelets_start = self._retrieve_ids_lanelets_start()
+    File "<YOUR_DIR>/anaconda3/envs/cr/lib/python3.10/site-packages/commonroad_route_planner/route_planner.py", line 192, in _retrieve_ids_lanelets_start
+    list_ids_lanelets_start = self.lanelet_network.find_lanelet_by_position([post_start])[0]
+    File "<YOUR_DIR>/anaconda3/envs/cr/lib/python3.10/site-packages/commonroad/scenario/lanelet.py", line 1549, in find_lanelet_by_position
+    return [[self._get_lanelet_id_by_shapely_polygon(lanelet_shapely_polygon) for lanelet_shapely_polygon in
+    File "<YOUR_DIR>/anaconda3/envs/cr/lib/python3.10/site-packages/commonroad/scenario/lanelet.py", line 1549, in
+    return [[self._get_lanelet_id_by_shapely_polygon(lanelet_shapely_polygon) for lanelet_shapely_polygon in
+    File "<YOUR_DIR>/anaconda3/envs/cr/lib/python3.10/site-packages/commonroad/scenario/lanelet.py", line 1551, in
+    lanelet_shapely_polygon.intersects(point) or lanelet_shapely_polygon.buffer(1e-15).intersects(point)]
+    AttributeError: 'numpy.int64' object has no attribute 'intersects'
+```
+
+which might be caused by a newer version of the `commonroad` pkg.
+
+### Fix
+
+Find function `find_lanelet_by_position()` in `commonroad/scenario/lanelet.py`, and change it to:
+
+```python
+  def find_lanelet_by_position(self, point_list: List[np.ndarray]) -> List[List[int]]:
+    """
+    Finds the lanelet id of a given position
+
+    :param point_list: The list of positions to check
+    :return: A list of lanelet ids. If the position could not be matched to a lanelet, an empty list is returned
+    """
+    assert isinstance(point_list,
+                      ValidTypes.LISTS), '<Lanelet/contains_points>: provided list of points is not a list! type ' \
+                                        '= {}'.format(type(point_list))
+
+    return [[self._get_lanelet_id_by_shapely_polygon(lanelet_shapely_polygon) for lanelet_shapely_polygon in
+            self._buffered_polygons.values() if
+            lanelet_shapely_polygon.intersects(point) or lanelet_shapely_polygon.buffer(1e-15).intersects(point)]
+            for point in [ShapelyPoint(point) for point in point_list]]
+```
+
 ## Contribution
 
 You are welcome contributing to the package by opening a pull-request
