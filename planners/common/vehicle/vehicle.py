@@ -35,7 +35,7 @@ class Vehicle(object):
         self.b = vehicle_params.b                                               # distance from the CoG to front_link [m]
         self.L = self.a + self.b                                                # wheelbase distance [m]
         self.T_f = vehicle_params.T_f                                           # front track w [m]
-        self.T_f = vehicle_params.T_r                                           # rear track w [m]
+        self.T_r = vehicle_params.T_r                                           # rear track w [m]
         self.max_speed = vehicle_params.longitudinal.v_max                      # maximum speed [m/s]
         self.max_accel = vehicle_params.longitudinal.a_max                      # maximum acceleration [m/ss]
         self.deccel = - self.max_speed / 5.0                                    # maximum decceleration [m/ss]
