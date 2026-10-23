@@ -1,5 +1,13 @@
 # FISS+ Planner
 
+> [!IMPORTANT]
+> **This repository is no longer maintained.** The maintained implementation of FISS+ (IROS 2023), together with
+> FOP and the other planners, now lives in **[SS47816/frenet_planner](https://github.com/SS47816/frenet_planner)**:
+> a C++17 core with Python bindings (`pip install frenet-planner`), ROS 2 / ROS 1 nodes, Lanelet2 /
+> CommonRoad / CARLA support, and a reproducible benchmark. Select it with `planner.type: fiss_plus`.
+> The code below is kept for reference; the version used in the paper is tagged
+> [`paper-iros2023`](https://github.com/SS47816/fiss_plus_planner/tree/paper-iros2023).
+
 ## [IROS 2023] FISS+: Efficient and Focused Trajectory Generation and Refinement using Fast Iterative Search and Sampling Strategy
 
 ![Ubuntu](https://img.shields.io/badge/OS-Ubuntu-informational?style=flat&logo=ubuntu&logoColor=white&color=2bbc8a)
