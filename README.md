@@ -1,11 +1,12 @@
 # FISS+ Planner
 
 > [!IMPORTANT]
-> **This project now lives in [SS47816/frenet_planner](https://github.com/SS47816/frenet_planner).**
+> **This project now lives in [SS47816/fiss_planner](https://github.com/SS47816/fiss_planner).**
 
-FISS+ (IROS 2023) is maintained in **frenet_planner**, together with FOP, FOP+ and the other FISS variants: one
-C++17 core with Python bindings (`pip install frenet-planner`), ROS 2 / ROS 1 nodes, Lanelet2 / CommonRoad /
-CARLA support and a reproducible benchmark. Select it with `planner.type: fiss_plus`.
+FISS+ (IROS 2023) is maintained in **[FISS Planner](https://github.com/SS47816/fiss_planner)**, together with FISS
+(RA-L 2022) and the FOP baselines: one C++17 core with Python bindings (`pip install fiss-planner`), ROS 2 /
+ROS 1 nodes, Lanelet2 / CommonRoad / CARLA support and a reproducible benchmark. Select it with
+`planner.type: fiss_plus`. Documentation and an interactive replay: https://ss47816.github.io/fiss_planner/
 
 ## Paper version
 
